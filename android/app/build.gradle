@@ -30,10 +30,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.swift_app"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -43,6 +44,20 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    dexOptions {
+        // Ensures incremental builds remain fast
+        preDexLibraries true
+        // Required to build with Reader SDK
+        jumboMode true
+        // Required to build with Reader SDK
+        keepRuntimeAnnotatedClasses false
+    }
+
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
+
 }
 
 flutter {

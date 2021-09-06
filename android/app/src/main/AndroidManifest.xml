@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.swift_app">
    <application
+        android:name=".MainApplication"
         android:label="swift_app"
         android:icon="@mipmap/ic_launcher">
         <activity
